@@ -39,11 +39,7 @@ const Education: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="education"
-      ref={containerRef}
-      className="py-20 bg-gray-50"
-    >
+    <section id="education" ref={containerRef} className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Education</h2>
@@ -66,9 +62,13 @@ const Education: React.FC = () => {
                     <h3 className="text-xl font-semibold text-gray-800">
                       Engineering in Computer Science
                     </h3>
-                    <span className="text-blue-600 font-medium">2023 - Present</span>
+                    <span className="text-blue-600 font-medium">
+                      2023 - Present
+                    </span>
                   </div>
-                  <p className="text-gray-600 mb-3">Second Year - Currently Enrolled</p>
+                  <p className="text-gray-600 mb-3">
+                    Second Year - Currently Enrolled
+                  </p>
                   <p className="text-gray-600 text-sm">
                     Currently in my second year of computer science engineering,
                     building upon the strong foundation established in my first
@@ -91,11 +91,15 @@ const Education: React.FC = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-gray-800">
-                      Cycle Préparatoire Intégré
+                      Integrated Preparatory cycle
                     </h3>
-                    <span className="text-blue-600 font-medium">2021 - 2023</span>
+                    <span className="text-blue-600 font-medium">
+                      2021 - 2023
+                    </span>
                   </div>
-                  <p className="text-gray-600 mb-3">Faculté des Sciences de Bizerte</p>
+                  <p className="text-gray-600 mb-3">
+                    Faculté des Sciences de Bizerte
+                  </p>
                   <p className="text-gray-600 text-sm">
                     Completed two years of integrated preparatory cycle at the
                     Faculty of Sciences of Bizerte. This program provided a
@@ -118,11 +122,13 @@ const Education: React.FC = () => {
                 <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-gray-800">
-                      Baccalauréat en Sciences Techniques
+                      Baccalaureate in Computer Science
                     </h3>
                     <span className="text-blue-600 font-medium">2021</span>
                   </div>
-                  <p className="text-gray-600 mb-3">Lycée Khayer Eddine Ariana</p>
+                  <p className="text-gray-600 mb-3">
+                    Lycée Khayer Eddine Ariana
+                  </p>
                   <p className="text-gray-600 text-sm">
                     Obtained the Tunisian Baccalaureate in Computer Science
                     (Sciences Informatiques), with a focus on programming,
@@ -141,4 +147,3 @@ const Education: React.FC = () => {
 };
 
 export default Education;
-  

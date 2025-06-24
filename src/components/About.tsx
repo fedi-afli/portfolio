@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Calendar, BookOpen } from "lucide-react";
+import ProfileImage from "../assets/profile_image.jpeg";
 
 const About: React.FC = () => {
   return (
@@ -13,8 +14,8 @@ const About: React.FC = () => {
           <div>
             <div className="bg-gradient-to-br from-blue-100 to-indigo-200 rounded-2xl  h-90 w-80 flex items-center justify-center">
               <img
-                src="src\assets\profile_image.jpeg"
-                alt="Prfoile Image"
+                src={ProfileImage}
+                alt="Profile Image"
                 className="rounded-2xl  h-100 w-90 "
               />
             </div>
