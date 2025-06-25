@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import DownloadButton from "./DownloadButton"; // adapte le chemin si nécessaire
+import DownloadButton from "./DownloadButton";
 
 const Contact: React.FC = () => {
   return (

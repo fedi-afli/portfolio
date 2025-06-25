@@ -1,6 +1,6 @@
 import React from "react";
 import { MapPin, Calendar, BookOpen } from "lucide-react";
-import ProfileImage from "../assets/profile_image.jpeg";
+import ProfileImage from "/profile_image.jpeg";
 
 const About: React.FC = () => {
   return (
