@@ -1,6 +1,7 @@
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import DownloadButton from "./DownloadButton";
+import Resume from "/Resume-Fedi-Afli.pdf";
 
 const Contact: React.FC = () => {
   return (
@@ -81,7 +82,7 @@ const Contact: React.FC = () => {
               want to collaborate on a project, or just want to connect with
               someone who loves technology, I'd love to hear from you!
             </p>
-            <DownloadButton file="src\assets\Resume Fedi Afli.pdf" />
+            <DownloadButton file={Resume} />
           </div>
         </div>
       </div>
