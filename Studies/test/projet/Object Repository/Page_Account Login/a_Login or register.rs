@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Login or register</name>
+   <tag></tag>
+   <elementGuidId>f8d9df74-da1f-4f91-b33a-89a2f7211e4e</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//ul[@id='customer_menu_top']/li/a</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>li > a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>1c35af22-b92c-4bce-a1bd-7c4ea9457904</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>https://automationteststore.com/index.php?rt=account/login</value>
+      <webElementGuid>20ea2583-5425-4f4f-8dd8-5d51808fa061</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Login or register</value>
+      <webElementGuid>3ce7f11e-b986-4c23-aeef-a69cc3768d50</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;customer_menu_top&quot;)/li[1]/a[1]</value>
+      <webElementGuid>ed04e34a-0e14-46f1-8b98-1f7edc013108</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//ul[@id='customer_menu_top']/li/a</value>
+      <webElementGuid>419e25ef-f700-4108-83f8-2ee58749ce51</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'Login or register')]</value>
+      <webElementGuid>269b5c9e-414e-44e5-97d4-729cc10785f3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Main Menu'])[1]/preceding::a[1]</value>
+      <webElementGuid>de08151b-3560-4048-8a0f-4d21fe7b8d08</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Specials'])[1]/preceding::a[1]</value>
+      <webElementGuid>aa44a480-cedb-4f7e-8baa-7032d1509a4d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Login or register']/parent::*</value>
+      <webElementGuid>1d604c4a-6748-4902-bb00-234ad04d5eac</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'https://automationteststore.com/index.php?rt=account/login')]</value>
+      <webElementGuid>c4bb08bf-fb61-4e5e-a105-1d8fbf94ca46</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li/a</value>
+      <webElementGuid>af1c8968-36a4-4a14-adec-723241ac7394</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'https://automationteststore.com/index.php?rt=account/login' and (text() = 'Login or register' or . = 'Login or register')]</value>
+      <webElementGuid>367f89be-f70a-4214-9cac-09ae8305fcf4</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

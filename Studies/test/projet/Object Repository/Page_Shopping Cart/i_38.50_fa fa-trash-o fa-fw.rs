@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>i_38.50_fa fa-trash-o fa-fw</name>
+   <tag></tag>
+   <elementGuidId>23144237-c858-41ce-9a5d-707b7fc79d68</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//form[@id='cart']/div/div/table/tbody/tr[2]/td[7]/a/i</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>i.fa.fa-trash-o.fa-fw</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot;&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>i</value>
+      <webElementGuid>4540eb3d-e39a-401a-bc78-b4794db4412f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>fa fa-trash-o fa-fw</value>
+      <webElementGuid>584865b6-10f9-4e7c-98a0-8c445538abc4</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;cart&quot;)/div[@class=&quot;contentpanel&quot;]/div[@class=&quot;container-fluid cart-info product-list&quot;]/table[@class=&quot;table table-striped table-bordered&quot;]/tbody[1]/tr[2]/td[@class=&quot;align_center&quot;]/a[@class=&quot;btn btn-sm btn-default&quot;]/i[@class=&quot;fa fa-trash-o fa-fw&quot;]</value>
+      <webElementGuid>3d2850a1-8879-4534-9dd9-d460d3b5234a</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='cart']/div/div/table/tbody/tr[2]/td[7]/a/i</value>
+      <webElementGuid>c535e8d6-2526-4eef-8769-787a8faa2c40</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//td[7]/a/i</value>
+      <webElementGuid>6ec783f2-ba46-4e70-ac2b-e8a46631e5e1</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Site Map</name>
+   <tag></tag>
+   <elementGuidId>dcbb087a-e159-41ed-808e-03de1a084267</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='footer']/footer/section[2]/div/div/div/ul/li[6]/a</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>ul.info_links_footer > li:nth-of-type(6) > a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>8106ba1b-c642-4e15-bbdb-1c0632cc83e2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>https://automationteststore.com/index.php?rt=content/sitemap</value>
+      <webElementGuid>a80c1d98-3e38-4cd9-8701-9c3c45e20503</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Site Map</value>
+      <webElementGuid>fdeddd60-3fca-4ff1-b49a-1cf4b6debbb1</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;footer&quot;)/footer[1]/section[@class=&quot;footerlinks&quot;]/div[@class=&quot;container-fluid&quot;]/div[@class=&quot;pull-left&quot;]/div[@class=&quot;info&quot;]/ul[@class=&quot;info_links_footer&quot;]/li[6]/a[1]</value>
+      <webElementGuid>2f43e6bd-d538-4411-a483-ef2bc04207fa</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='footer']/footer/section[2]/div/div/div/ul/li[6]/a</value>
+      <webElementGuid>326e41b5-89bf-47e2-971c-a01127d2358d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'Site Map')]</value>
+      <webElementGuid>f0c4d158-4655-4533-8b56-ed90c7a25fce</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Contact Us'])[2]/following::a[1]</value>
+      <webElementGuid>3a851d0a-f84b-4643-a420-abdf246c1b34</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Shipping'])[1]/following::a[2]</value>
+      <webElementGuid>a1b9a798-3c7d-4cd2-9991-646c48fda514</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[3]/preceding::a[1]</value>
+      <webElementGuid>ee20ec89-6412-4d83-9a1d-bb9eeb15041b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Facebook'])[2]/preceding::a[2]</value>
+      <webElementGuid>5d92686d-d3e3-4a62-84ae-a41bd5242ade</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Site Map']/parent::*</value>
+      <webElementGuid>5792b3a5-730b-471f-aad4-be60216cb957</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'https://automationteststore.com/index.php?rt=content/sitemap')]</value>
+      <webElementGuid>4ffa4dae-0dbd-4b4b-825b-c6bfe486a947</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div/div/ul/li[6]/a</value>
+      <webElementGuid>ad30f79f-ce89-424f-bcfb-f653a83a1b8f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'https://automationteststore.com/index.php?rt=content/sitemap' and (text() = 'Site Map' or . = 'Site Map')]</value>
+      <webElementGuid>95862045-9b36-4794-8627-77f27e2f286c</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

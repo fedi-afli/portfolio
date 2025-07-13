@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Vérifier si un utilisateur peut s'inscrire avec un nom d'utilisateur trop court (BUG potentiel)</description>
+   <name>RegTC4</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>dbb5dbdd-3d1f-4bfa-9711-d5ec6d8c0b54</testCaseGuid>
+</TestCaseEntity>

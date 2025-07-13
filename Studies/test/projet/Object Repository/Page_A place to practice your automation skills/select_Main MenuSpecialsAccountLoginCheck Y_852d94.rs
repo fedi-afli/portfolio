@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>select_Main MenuSpecialsAccountLoginCheck Y_852d94</name>
+   <tag></tag>
+   <elementGuidId>524e2d37-74a8-46da-9047-da6f54e93f4e</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='topnav']/select</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>select.form-control</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>select</value>
+      <webElementGuid>c6b10050-d80e-472b-95ca-e3728124cba2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>form-control</value>
+      <webElementGuid>6b5aa412-11d3-4a29-8f39-1ed7a2be35b3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Main Menu Specials Account Login Check Your Order Cart Checkout</value>
+      <webElementGuid>1850916e-8c53-4d93-ba9c-d9127c8d517c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;topnav&quot;)/select[@class=&quot;form-control&quot;]</value>
+      <webElementGuid>c695f836-dd61-4a83-be3e-413c572a0528</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='topnav']/select</value>
+      <webElementGuid>fbe789e1-080a-4220-8f87-7afee2972b49</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Checkout'])[1]/following::select[1]</value>
+      <webElementGuid>780ddd69-c5d6-4620-bb0b-4b113713fe8d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Cart'])[1]/following::select[1]</value>
+      <webElementGuid>a0d28996-890f-407c-915f-cf6ac1a33b27</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='All Categories'])[1]/preceding::select[1]</value>
+      <webElementGuid>423ca57d-0134-4e6b-b1ea-d08b0c0d53d1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='All Categories'])[2]/preceding::select[1]</value>
+      <webElementGuid>6e857cd8-b9d7-4bb9-80d0-9cbda1afc01c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//select</value>
+      <webElementGuid>dc84735d-a858-43b1-b5c6-c7c7bae9fb24</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//select[(text() = 'Main Menu Specials Account Login Check Your Order Cart Checkout' or . = 'Main Menu Specials Account Login Check Your Order Cart Checkout')]</value>
+      <webElementGuid>db80af72-7e39-474a-82bb-7a621a732779</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Vérifier qu'un utilisateur ne peut pas se connecter avec un mot de passe incorrect.&#xd;
+&#xd;
+&#xd;
+</description>
+   <name>AuthTC3</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>b3573b2f-7b64-49e4-9c82-02ace5d5043b</testCaseGuid>
+</TestCaseEntity>

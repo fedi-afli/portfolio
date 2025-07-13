@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Vérifier que le menu principal affiche toutes les catégories correctement.</description>
+   <name>NavTC1</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a6dddb98-4516-4ea0-9782-7775d79c4f53</testCaseGuid>
+</TestCaseEntity>

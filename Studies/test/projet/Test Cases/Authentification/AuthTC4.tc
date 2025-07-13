@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Tester la connexion avec un compte verrouillé (BUG potentiel).</description>
+   <name>AuthTC4</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>279c646c-508d-4cdf-900e-f31fbbf8a7a9</testCaseGuid>
+</TestCaseEntity>

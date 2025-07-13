@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Tester si un utilisateur peut s'inscrire avec un nom d'utilisateur déjà utilisé .</description>
+   <name>RegTC3</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>4e124974-755d-4597-8d2f-1e2231c90db4</testCaseGuid>
+</TestCaseEntity>

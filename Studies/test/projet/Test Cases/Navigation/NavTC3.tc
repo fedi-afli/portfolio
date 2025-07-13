@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Vérifier que le bouton &quot;Retour en haut&quot; fonctionne correctement.</description>
+   <name>NavTC3</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>5886399d-34bc-42b1-80a7-9e9f7fd764ac</testCaseGuid>
+</TestCaseEntity>

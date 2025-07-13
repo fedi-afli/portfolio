@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description> Vérifier qu'un utilisateur peut se connecter avec un nom d'utilisateur et un mot de passe valides.&#xd;
+</description>
+   <name>AuthTC1</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>14ddc072-9556-49c7-b17e-45b95f85eac2</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Tester la navigation via les liens du pied de page (Contact, FAQ, Politique de confidentialité).</description>
+   <name>NavTC2</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f5d57256-4ac1-4705-bac9-ff9c416222e2</testCaseGuid>
+</TestCaseEntity>
