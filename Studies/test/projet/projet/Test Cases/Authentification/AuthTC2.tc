@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description>Un utilisateur avec un Email VIDE et/ou un Password VIDE NE devrait PAS pouvoir se connecter.</description>
-   <name>AuthTC2</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>36a6fffd-59c8-479d-b68c-95e8e11baa88</testCaseGuid>
-</TestCaseEntity>

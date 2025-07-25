@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description>Tentative de connexion après 5 échecs → Doit bloquer temporairement le compte ou proposer un réinitialisation (Test anti-bruteforce)</description>
-   <name>AuthTC6</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>827ad189-d771-4606-b8c9-cb7240c22239</testCaseGuid>
-</TestCaseEntity>

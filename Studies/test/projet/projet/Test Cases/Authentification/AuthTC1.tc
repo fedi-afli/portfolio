@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description> Un utilisateur avec un bon Email et un bon Password devrait pouvoir se connecter.</description>
-   <name>AuthTC1</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>14ddc072-9556-49c7-b17e-45b95f85eac2</testCaseGuid>
-</TestCaseEntity>

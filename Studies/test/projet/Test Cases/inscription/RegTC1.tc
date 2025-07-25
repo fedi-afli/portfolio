@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description>Tester l'inscription avec un nom d'utilisateur valide et des informations correctes.</description>
-   <name>RegTC1</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>c7de1dd9-80fc-4205-ac08-f604064ab9b0</testCaseGuid>
-</TestCaseEntity>

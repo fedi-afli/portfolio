@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description>Vérifier que l'inscription échoue si un champ obligatoire est vide.</description>
-   <name>RegTC2</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>ee8d2421-e993-4655-bf67-cf9fec77dd32</testCaseGuid>
-</TestCaseEntity>

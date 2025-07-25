@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description>Vérifier que l'inscription échoue si le mot de passe est trop court (par exemple, moins de 6 caractères).</description>
-   <name>RegTC5</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>5fb449a4-c867-4aa3-8297-8fb9d54c5988</testCaseGuid>
-</TestCaseEntity>
