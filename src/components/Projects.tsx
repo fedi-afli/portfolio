@@ -1,4 +1,6 @@
 import React from "react";
+import social_sphere_logo from "/social_sphere_logo.png";
+import chronova_logo from "/chronova_logo.png";
 import {
   Code,
   Database,
@@ -24,8 +26,12 @@ const Projects: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/*Chronovia Store Project*/}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-blue-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <ShoppingCart className="w-12 h-12 text-blue-600" />
+            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+              <img
+                src={chronova_logo}
+                alt="Chronova Logo"
+                className="h-32 w-32 object-contain"
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               Chronova Store eCommerce
@@ -89,6 +95,41 @@ const Projects: React.FC = () => {
               </div>
               <a
                 href="https://arabian-shop-magichosted.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
+              </a>
+            </div>
+          </div>
+          {/* YH Street website */}
+          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+              <img
+                src={social_sphere_logo}
+                alt="Social Sphere Logo"
+                className="h-32 w-32 object-contain"
+              />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              SocialSphere
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Social Sphere is a LinkedIn-inspired platform that connects
+              professionals, enabling networking, content sharing, and career
+              growth in a modern social environment.
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-2">
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
+                  express js
+                </span>
+                <span className="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
+                  Tailwind
+                </span>
+              </div>
+              <a
+                href="https://github.com/fedi-afli/linkedinSocialMedia.git"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -176,40 +217,6 @@ const Projects: React.FC = () => {
               </div>
               <a
                 href="https://fedi-afli.github.io/portfolio/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-
-          {/* ReactJS Portfolio */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <ShoppingCart className="w-12 h-12 text-blue-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              eCommerce Website
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A simple yet effective e-commerce website built with React.js and
-              Tailwind CSS, designed to showcase products and support online
-              shopping for small to medium businesses. It uses Supabase for data
-              persistence and is currently live with me managing the platform as
-              the administrator.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  React
-                </span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
-                  Tailwind
-                </span>
-              </div>
-              <a
-                href="https://arabian-shop-magichosted.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
               >
