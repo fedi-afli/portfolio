@@ -24,10 +24,10 @@ const Skills: React.FC = () => {
               Programming
             </h3>
             <div className="space-y-4">
-              <SkillBar skill="JavaScript/TypeScript" level={40} />
-              <SkillBar skill="Python" level={70} />
+              <SkillBar skill="JavaScript/TypeScript" level={85} />
+              <SkillBar skill="Python" level={80} />
               <SkillBar skill="C/C++" level={60} />
-              <SkillBar skill="Java" level={70} />
+              <SkillBar skill="Java" level={80} />
             </div>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
@@ -37,9 +37,9 @@ const Skills: React.FC = () => {
             </h3>
             <div className="space-y-4">
               <SkillBar skill="HTML/CSS" level={85} />
-              <SkillBar skill="React" level={40} />
-              <SkillBar skill="Node.js" level={30} />
-              <SkillBar skill="Tailwind CSS" level={50} />
+              <SkillBar skill="React" level={80} />
+              <SkillBar skill="Node.js" level={80} />
+              <SkillBar skill="Tailwind CSS" level={70} />
             </div>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
@@ -48,9 +48,9 @@ const Skills: React.FC = () => {
               Data & Algorithms
             </h3>
             <div className="space-y-4">
-              <SkillBar skill="Data Structures" level={60} />
-              <SkillBar skill="Algorithms" level={70} />
-              <SkillBar skill="SQL" level={70} />
+              <SkillBar skill="Data Structures" level={90} />
+              <SkillBar skill="Algorithms" level={85} />
+              <SkillBar skill="SQL" level={90} />
               <SkillBar skill="Mathematics" level={80} />
             </div>
           </div>
@@ -60,7 +60,7 @@ const Skills: React.FC = () => {
               Tools & Others
             </h3>
             <div className="space-y-4">
-              <SkillBar skill="Git/GitHub" level={50} />
+              <SkillBar skill="Git/GitHub" level={80} />
               <SkillBar skill="Linux" level={65} />
               <SkillBar skill="VS Code" level={85} />
               <SkillBar skill="Problem Solving" level={85} />
