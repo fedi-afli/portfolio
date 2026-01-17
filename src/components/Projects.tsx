@@ -129,8 +129,8 @@ const Projects: React.FC = () => {
                 </span>
               </div>
               <a
-                href="https://github.com/fedi-afli/linkedinSocialMedia.git"
-                target="_blank"
+                href="https://www.youtube.com/watch?v=qts42JCuHFg"
+                target="SocialSphere Demo Video"
                 rel="noopener noreferrer"
               >
                 <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
