@@ -1,6 +1,10 @@
 import React from "react";
 import social_sphere_logo from "/social_sphere_logo.png";
 import chronova_logo from "/chronova_logo.png";
+import yh_street_logo from "/YH_street.png";
+import library_managment_logo from "/library_managment_logo.png";
+import social_media_logo from "/social_media_logo.png";
+  
 import {
   Code,
   Database,
@@ -72,7 +76,11 @@ const Projects: React.FC = () => {
           {/* YH Street website */}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <ShoppingCart className="w-12 h-12 text-blue-600" />
+              <img
+                src={yh_street_logo}
+                alt="YH STREET Logo"
+                className="h-32 w-32 object-contain"
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               YH Street eCommerce Website
@@ -102,7 +110,7 @@ const Projects: React.FC = () => {
               </a>
             </div>
           </div>
-          {/* YH Street website */}
+          {/* social sphere website */}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
               <img
@@ -139,8 +147,12 @@ const Projects: React.FC = () => {
           </div>
           {/* Social Media App in Java */}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-blue-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <Users className="w-12 h-12 text-blue-600" />
+<div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+              <img
+                src={social_media_logo}
+                alt="Social Media Logo"
+                className="h-32 w-32 object-contain"
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               Social Media Web App
@@ -170,8 +182,12 @@ const Projects: React.FC = () => {
 
           {/* Python Library Manager */}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-green-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <Database className="w-12 h-12 text-green-600" />
+            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+              <img
+                src={library_managment_logo}
+                alt="Library Managmen Logo"
+                className="h-32 w-32 object-contain"
+              />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               Library Management App
