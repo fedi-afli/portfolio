@@ -60,7 +60,7 @@ const Projects: React.FC = () => {
 
               </div>
               <a
-                  href="https://www.youtube.com/watch?v=QnccwiNDIJw&feature=youtu.be"
+                  href="https://github.com/fedi-afli/UniversityPortal"
                   target="_blank"
                   rel="noopener noreferrer"
               >
