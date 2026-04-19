@@ -1,9 +1,10 @@
 import React from "react";
 import social_sphere_logo from "/social_sphere_logo.png";
 import chronova_logo from "/chronova_logo.png";
-import yh_street_logo from "/YH_street.png";
+
 import library_managment_logo from "/library_managment_logo.png";
 import social_media_logo from "/social_media_logo.png";
+import university_mobile_app_logo from "/university_mobile_app.png";
   
 import {
   Code,
@@ -72,9 +73,47 @@ const Projects: React.FC = () => {
               </a>
             </div>
           </div>
+           {/*University Mobile App*/}
+           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+              <img
+                src={university_mobile_app_logo}
+                alt="University Mobile App"
+                className="h-32 w-32 object-contain"
+              />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              University Mobile App
+            </h3>
+            <p className="text-gray-600 mb-4">
+              A simple yet effective Flutter-based school attendance management system with role-based access for admins, teachers, and students.
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-2">
+                <span className="px-3 py-1  bg-blue-100 text-blue-800 text-sm rounded-full">
+                  SQL
+                </span>
+
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
+                  PHP
+                </span>
+                <span className="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">
+                  Flutter
+                </span>
+              </div>
+              <a
+                href="https://github.com/fedi-afli/university_mobile_app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
+              </a>
+            </div>
+          </div>
+
 
           {/* YH Street website */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+         {/* <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
               <img
                 src={yh_street_logo}
@@ -109,7 +148,7 @@ const Projects: React.FC = () => {
                 <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
               </a>
             </div>
-          </div>
+          </div>*/}
           {/* social sphere website */}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
