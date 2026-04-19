@@ -1,5 +1,5 @@
 import React from "react";
-import { Code, Database, Palette, Globe } from "lucide-react";
+import { Code, Database, Palette, Globe ,Smartphone} from "lucide-react";
 import SkillBar from "./SkillBar";
 
 const Skills: React.FC = () => {
@@ -17,7 +17,7 @@ const Skills: React.FC = () => {
             technologies.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <Code className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
@@ -25,7 +25,7 @@ const Skills: React.FC = () => {
             </h3>
             <div className="space-y-4">
               <SkillBar skill="JavaScript/TypeScript" level={85} />
-              <SkillBar skill="Python" level={80} />
+              <SkillBar skill="Python" level={90} />
               <SkillBar skill="C/C++" level={60} />
               <SkillBar skill="Java" level={80} />
             </div>
@@ -36,10 +36,10 @@ const Skills: React.FC = () => {
               Web Development
             </h3>
             <div className="space-y-4">
-              <SkillBar skill="HTML/CSS" level={85} />
+              <SkillBar skill="Angular" level={70} />
               <SkillBar skill="React" level={80} />
-              <SkillBar skill="Node.js" level={80} />
-              <SkillBar skill="Tailwind CSS" level={70} />
+              <SkillBar skill="Express.js" level={80} />
+              <SkillBar skill="Tailwind / Bootsrap" level={70} />
             </div>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
@@ -50,7 +50,7 @@ const Skills: React.FC = () => {
             <div className="space-y-4">
               <SkillBar skill="Data Structures" level={90} />
               <SkillBar skill="Algorithms" level={85} />
-              <SkillBar skill="SQL" level={90} />
+              <SkillBar skill="SQL / NoSQL / PostgresSQL" level={90} />
               <SkillBar skill="Mathematics" level={80} />
             </div>
           </div>
@@ -61,9 +61,20 @@ const Skills: React.FC = () => {
             </h3>
             <div className="space-y-4">
               <SkillBar skill="Git/GitHub" level={80} />
-              <SkillBar skill="Linux" level={65} />
-              <SkillBar skill="VS Code" level={85} />
+              <SkillBar skill="Linux" level={90} />
+              <SkillBar skill="IDE's" level={85} />
               <SkillBar skill="Problem Solving" level={85} />
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Smartphone className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-800 mb-6">
+              Mobile Development
+            </h3>
+            <div className="space-y-4">
+              <SkillBar skill="Flutter" level={80} />
+              <SkillBar skill="Android Studio" level={75} />
+              <SkillBar skill="Dart" level={80} />
             </div>
           </div>
         </div>

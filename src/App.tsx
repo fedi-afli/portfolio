@@ -20,7 +20,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <Education />
+        <Education scrollToSection={scrollToSection} />
       <Contact />
       <Footer />
     </div>

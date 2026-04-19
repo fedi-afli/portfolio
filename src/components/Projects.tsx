@@ -8,11 +8,10 @@ import university_mobile_app_logo from "/university_mobile_app.png";
   
 import {
   Code,
-  Database,
+
   Globe,
   ExternalLink,
-  Users,
-  ShoppingCart,
+
 } from "lucide-react";
 
 const Projects: React.FC = () => {
