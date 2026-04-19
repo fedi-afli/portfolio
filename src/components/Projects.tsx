@@ -5,6 +5,7 @@ import chronova_logo from "/chronova_logo.png";
 import library_managment_logo from "/library_managment_logo.png";
 import social_media_logo from "/social_media_logo.png";
 import university_mobile_app_logo from "/university_mobile_app.png";
+import Campus_hub_logo from "/campushub.png";
   
 import {
   Code,
@@ -28,6 +29,45 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/*CampusHub web app*/}
+          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+              <img
+                  src={Campus_hub_logo}
+                  alt="Chronova Logo"
+                  className="h-32 w-32 object-contain"
+              />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              CampusHub the agentic university web app
+            </h3>
+            <p className="text-gray-600 mb-4">
+              A full-featured agentic web application designed for university students powered by both ollama and nvidia agents, enabling them to track absences,
+              justify them using a computer vision–powered AI agent,
+              and automate administrative tasks through an advanced AI assistant.
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-2 flex-wrap gap-1 gap-y-* ">
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
+                  express js
+                </span>
+                <span className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
+                  python langchain
+                </span>
+                <span className="px-3 py-1  bg-blue-100 text-blue-800 text-sm rounded-full">
+                  NoSQL
+                </span>
+
+              </div>
+              <a
+                  href="https://www.youtube.com/watch?v=QnccwiNDIJw&feature=youtu.be"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
+              </a>
+            </div>
+          </div>
           {/*Chronovia Store Project*/}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
