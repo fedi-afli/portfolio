@@ -13,6 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({ scrollToSection }) => {
           <div className="hidden md:flex space-x-8">
             <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors">About</button>
             <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-blue-600 transition-colors">Skills</button>
+            <button onClick={() => scrollToSection('certifications')} className="text-gray-600 hover:text-blue-600 transition-colors">Certifications</button>
             <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-blue-600 transition-colors">Projects</button>
             <button onClick={() => scrollToSection('education')} className="text-gray-600 hover:text-blue-600 transition-colors">Education</button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors">Contact</button>

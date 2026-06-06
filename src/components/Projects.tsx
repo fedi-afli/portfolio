@@ -4,15 +4,12 @@ import chronova_logo from "/chronova_logo.png";
 
 import library_managment_logo from "/library_managment_logo.png";
 import social_media_logo from "/social_media_logo.png";
-import university_mobile_app_logo from "/university_mobile_app.png";
-import Campus_hub_logo from "/campushub.png";
   
 import {
   Code,
-
+  Smartphone,
   Globe,
   ExternalLink,
-
 } from "lucide-react";
 
 const Projects: React.FC = () => {
@@ -32,11 +29,7 @@ const Projects: React.FC = () => {
           {/*CampusHub web app*/}
           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                  src={Campus_hub_logo}
-                  alt="Chronova Logo"
-                  className="h-32 w-32 object-contain"
-              />
+              <Globe className="w-12 h-12 text-purple-600" />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               CampusHub the agentic university web app
@@ -115,11 +108,7 @@ const Projects: React.FC = () => {
            {/*University Mobile App*/}
            <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
             <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                src={university_mobile_app_logo}
-                alt="University Mobile App"
-                className="h-32 w-32 object-contain"
-              />
+              <Smartphone className="w-12 h-12 text-purple-600" />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               University Mobile App
