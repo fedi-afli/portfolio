@@ -78,7 +78,7 @@ const Certifications: React.FC = () => {
                 <img
                   src={cert.badge}
                   alt={`${cert.title} badge`}
-                  className="w-full h-full object-contain drop-shadow-md"
+                  className="w-full h-full object-cover rounded-full ring-4 ring-gray-100 shadow-lg"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       PLACEHOLDER_BADGE;
