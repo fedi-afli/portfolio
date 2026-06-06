@@ -4,39 +4,30 @@ import { BadgeCheck } from "lucide-react";
 interface Certification {
   title: string;
   year: string;
-  badgeBg: string;
-  badgeRing: string;
-  badgeIcon: string;
-  iconLetter: string;
+  badge: string;
   accentText: string;
 }
+
+const PLACEHOLDER_BADGE =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/120px-Placeholder_view_vector.svg.png";
 
 const certifications: Certification[] = [
   {
     title: "Microsoft Word",
     year: "2023",
-    badgeBg: "bg-blue-600",
-    badgeRing: "ring-blue-200",
-    badgeIcon: "bg-blue-700",
-    iconLetter: "W",
+    badge: PLACEHOLDER_BADGE,
     accentText: "text-blue-600",
   },
   {
     title: "Microsoft Excel",
     year: "2023",
-    badgeBg: "bg-emerald-600",
-    badgeRing: "ring-emerald-200",
-    badgeIcon: "bg-emerald-700",
-    iconLetter: "X",
+    badge: PLACEHOLDER_BADGE,
     accentText: "text-emerald-600",
   },
   {
     title: "Microsoft PowerPoint",
     year: "2023",
-    badgeBg: "bg-orange-500",
-    badgeRing: "ring-orange-200",
-    badgeIcon: "bg-orange-600",
-    iconLetter: "P",
+    badge: PLACEHOLDER_BADGE,
     accentText: "text-orange-500",
   },
 ];
@@ -71,7 +62,7 @@ const Certifications: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-10">
+        <div className="flex flex-col sm:flex-row justify-center gap-12">
           {certifications.map((cert, i) => (
             <div
               key={cert.title}
@@ -82,33 +73,28 @@ const Certifications: React.FC = () => {
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              {/* Badge */}
-              <div
-                className={`relative w-36 h-36 rounded-full ${cert.badgeBg} ring-8 ${cert.badgeRing} flex items-center justify-center shadow-lg mb-5`}
-              >
-                {/* Decorative notch ring */}
-                <div className="absolute inset-0 rounded-full border-4 border-white/30"></div>
-
-                {/* App icon letter */}
-                <div
-                  className={`w-16 h-16 rounded-2xl ${cert.badgeIcon} flex items-center justify-center shadow-md`}
-                >
-                  <span className="text-white text-3xl font-black">
-                    {cert.iconLetter}
-                  </span>
-                </div>
-
-                {/* Verified tick */}
-                <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow">
+              {/* Badge image */}
+              <div className="relative w-36 h-36 mb-5">
+                <img
+                  src={cert.badge}
+                  alt={`${cert.title} badge`}
+                  className="w-full h-full object-contain drop-shadow-md"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src =
+                      PLACEHOLDER_BADGE;
+                  }}
+                />
+                {/* Verified tick overlay */}
+                <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow">
                   <BadgeCheck
-                    className={`w-7 h-7 ${cert.accentText}`}
+                    className={`w-6 h-6 ${cert.accentText}`}
                     strokeWidth={2}
                   />
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-gray-800 text-center mb-1">
+              <h3 className="text-lg font-bold text-gray-800 text-center mb-2">
                 {cert.title}
               </h3>
 
