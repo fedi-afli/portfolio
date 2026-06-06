@@ -1,42 +1,43 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Award, CheckCircle } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 
 interface Certification {
   title: string;
-  issuer: string;
-  date: string;
-  description: string;
-  color: string;
-  iconColor: string;
+  year: string;
+  badgeBg: string;
+  badgeRing: string;
+  badgeIcon: string;
+  iconLetter: string;
+  accentText: string;
 }
 
 const certifications: Certification[] = [
   {
     title: "Microsoft Word",
-    issuer: "Microsoft Office Specialist",
-    date: "2023",
-    description:
-      "Proficiency in document creation, formatting, styles, mail merge, and advanced word processing features.",
-    color: "bg-blue-50 border-blue-200",
-    iconColor: "text-blue-600",
+    year: "2023",
+    badgeBg: "bg-blue-600",
+    badgeRing: "ring-blue-200",
+    badgeIcon: "bg-blue-700",
+    iconLetter: "W",
+    accentText: "text-blue-600",
   },
   {
     title: "Microsoft Excel",
-    issuer: "Microsoft Office Specialist",
-    date: "2023",
-    description:
-      "Expertise in spreadsheet management, formulas, pivot tables, data analysis, and visualization with charts.",
-    color: "bg-green-50 border-green-200",
-    iconColor: "text-green-600",
+    year: "2023",
+    badgeBg: "bg-emerald-600",
+    badgeRing: "ring-emerald-200",
+    badgeIcon: "bg-emerald-700",
+    iconLetter: "X",
+    accentText: "text-emerald-600",
   },
   {
     title: "Microsoft PowerPoint",
-    issuer: "Microsoft Office Specialist",
-    date: "2023",
-    description:
-      "Skilled in creating professional presentations, animations, slide design, and effective visual storytelling.",
-    color: "bg-orange-50 border-orange-200",
-    iconColor: "text-orange-500",
+    year: "2023",
+    badgeBg: "bg-orange-500",
+    badgeRing: "ring-orange-200",
+    badgeIcon: "bg-orange-600",
+    iconLetter: "P",
+    accentText: "text-orange-500",
   },
 ];
 
@@ -66,47 +67,57 @@ const Certifications: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Professional certifications that validate my technical skills and
-            commitment to continuous learning.
+            Professional certifications validating my technical expertise.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="flex flex-col sm:flex-row justify-center gap-10">
           {certifications.map((cert, i) => (
             <div
               key={cert.title}
-              className={`border rounded-2xl p-6 ${cert.color} transition-all duration-700 hover:shadow-lg hover:-translate-y-1 ${
+              className={`flex flex-col items-center transition-all duration-700 ${
                 visible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className="flex items-start justify-between mb-4">
+              {/* Badge */}
+              <div
+                className={`relative w-36 h-36 rounded-full ${cert.badgeBg} ring-8 ${cert.badgeRing} flex items-center justify-center shadow-lg mb-5`}
+              >
+                {/* Decorative notch ring */}
+                <div className="absolute inset-0 rounded-full border-4 border-white/30"></div>
+
+                {/* App icon letter */}
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center bg-white shadow-sm`}
+                  className={`w-16 h-16 rounded-2xl ${cert.badgeIcon} flex items-center justify-center shadow-md`}
                 >
-                  <Award className={`w-6 h-6 ${cert.iconColor}`} />
+                  <span className="text-white text-3xl font-black">
+                    {cert.iconLetter}
+                  </span>
                 </div>
-                <span className="text-sm font-medium text-gray-500 bg-white px-3 py-1 rounded-full shadow-sm">
-                  {cert.date}
-                </span>
+
+                {/* Verified tick */}
+                <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow">
+                  <BadgeCheck
+                    className={`w-7 h-7 ${cert.accentText}`}
+                    strokeWidth={2}
+                  />
+                </div>
               </div>
 
-              <h3 className="text-xl font-bold text-gray-800 mb-1">
+              {/* Title */}
+              <h3 className="text-lg font-bold text-gray-800 text-center mb-1">
                 {cert.title}
               </h3>
-              <p className={`text-sm font-semibold mb-3 ${cert.iconColor}`}>
-                {cert.issuer}
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                {cert.description}
-              </p>
 
-              <div className="flex items-center text-sm text-gray-500">
-                <CheckCircle className={`w-4 h-4 mr-2 ${cert.iconColor}`} />
-                Certified
-              </div>
+              {/* Certified pill */}
+              <span
+                className={`text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-gray-100 ${cert.accentText}`}
+              >
+                Certified · {cert.year}
+              </span>
             </div>
           ))}
         </div>
