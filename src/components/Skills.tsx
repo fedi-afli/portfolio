@@ -36,10 +36,25 @@ const Skills: React.FC = () => {
               Web Development
             </h3>
             <div className="space-y-4">
-              <SkillBar skill="Angular" level={70} />
+              <SkillBar skill="Angular" level={80} />
+              <SkillBar skill="Spring Boot" level={80} />
               <SkillBar skill="React" level={80} />
-              <SkillBar skill="Express.js" level={80} />
-              <SkillBar skill="Tailwind / Bootsrap" level={70} />
+              <SkillBar skill="Express.js" level={90} />
+              <SkillBar skill="Tailwind / Bootstrap" level={70} />
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Code className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-800 mb-6">
+              DevOps
+            </h3>
+            <div className="space-y-4">
+              <SkillBar skill="Docker" level={90} />
+              <SkillBar skill="Kubernetes" level={80} />
+              <SkillBar skill="CI/CD (Jenkins/GitLab CI)" level={80} />
+              <SkillBar skill="DevSecOps" level={80} />
+              <SkillBar skill="DevSecOps" level={80} />
             </div>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">

@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BadgeCheck } from "lucide-react";
+import excel_badge from "/MOS_Excel.png";
+import powerpoint_badge from "/MOS_PowerPoint.png";
+import word_badge from "/MOS_Word_Expert.png";
 
 interface Certification {
   title: string;
@@ -15,19 +18,19 @@ const certifications: Certification[] = [
   {
     title: "Microsoft Word",
     year: "2023",
-    badge: PLACEHOLDER_BADGE,
+    badge: word_badge,
     accentText: "text-blue-600",
   },
   {
     title: "Microsoft Excel",
     year: "2023",
-    badge: PLACEHOLDER_BADGE,
+    badge: excel_badge,
     accentText: "text-emerald-600",
   },
   {
     title: "Microsoft PowerPoint",
     year: "2023",
-    badge: PLACEHOLDER_BADGE,
+    badge: powerpoint_badge,
     accentText: "text-orange-500",
   },
 ];
@@ -78,7 +81,7 @@ const Certifications: React.FC = () => {
                 <img
                   src={cert.badge}
                   alt={`${cert.title} badge`}
-                  className="w-full h-full object-cover rounded-full ring-4 ring-gray-100 shadow-lg"
+                  className="w-full h-full object-contain rounded-full ring-4 ring-gray-100 shadow-lg"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       PLACEHOLDER_BADGE;
