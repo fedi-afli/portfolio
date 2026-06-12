@@ -78,7 +78,7 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
                       <h3 className="text-xl font-semibold text-gray-800">
                         Engineering in Computer Science
                       </h3>
-                      <span className="text-blue-600 font-medium">2026 - 2026</span>
+                      <span className="text-blue-600 font-medium">2025 - 2026</span>
                     </div>
                     <p className="text-gray-600 mb-3">Second Year</p>
                     <p className="text-gray-600 text-sm">
