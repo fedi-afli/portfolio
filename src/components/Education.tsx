@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scrollToSection }) => {
-  const [showItems, setShowItems] = useState([false, false, false]);
+  const [showItems, setShowItems] = useState([false, false, false, false, false]);
   const containerRef = useRef<HTMLElement | null>(null);
   const animationDone = useRef(false);
 
@@ -11,30 +11,22 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
           const entry = entries[0];
           if (entry.isIntersecting && !animationDone.current) {
             animationDone.current = true;
-            showItems.forEach((_, i) => {
+            [0, 1, 2, 3, 4].forEach((i) => {
               setTimeout(() => {
                 setShowItems((prev) => {
                   const newState = [...prev];
                   newState[i] = true;
                   return newState;
                 });
-              }, i * 700); // delay between fades
+              }, i * 700);
             });
           }
         },
-        {
-          threshold: 0.3, // Trigger when 30% visible (adjust if needed)
-        }
+        { threshold: 0.3 }
     );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
+    if (containerRef.current) observer.observe(containerRef.current);
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
+      if (containerRef.current) observer.unobserve(containerRef.current);
     };
   }, []);
 
@@ -49,7 +41,7 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
             <div className="relative">
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
 
-              {/* Current Education */}
+              {/* Beehive Enterprises Internship — NEW */}
               <div
                   className={`relative mb-8 transition-opacity duration-700 ${
                       showItems[0] ? "opacity-100" : "opacity-0"
@@ -60,29 +52,25 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
                   <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-semibold text-gray-800">
-                        Internship at Canadian System Technologies
+                        Internship at Beehive Enterprises
                       </h3>
-                      <span className="text-blue-600 font-medium">
-                      Summer 2024
-                    </span>
                     </div>
-                    <p className="text-gray-600 mb-3">
-                      Second Year
-                    </p>
                     <p className="text-gray-600 text-sm">
-                      I completed a two-month internship at CST Canadian System Technologies  Enterprise,
-                      where I independently developed a fully functional e-commerce website
-                      named Chronovia Store. This experience allowed me to apply my technical skills in a real-world setting
-                      and gain valuable insights into professional software development.{" "}
-                      <span
-                          onClick={() => scrollToSection("projects")}
-                          className="text-blue-600 underline cursor-pointer hover:text-blue-800"
-                      >
-    A demo of the project is available in the Projects section.
-  </span>
+                      Completed an internship at Beehive Enterprises where I built and
+                      deployed a professional DevOps pipeline. Gained hands-on experience
+                      with CI/CD workflows, containerization, infrastructure automation,
+                      and modern deployment practices in a real production environment.
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Second Year Engineering — NEW */}
+              <div
+                  className={`relative mb-8 transition-opacity duration-700 ${
+                      showItems[1] ? "opacity-100" : "opacity-0"
+                  }`}
+              >
                 <div className="flex items-start">
                   <div className="bg-blue-600 w-4 h-4 rounded-full mt-6 mr-6 flex-shrink-0"></div>
                   <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
@@ -90,19 +78,64 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
                       <h3 className="text-xl font-semibold text-gray-800">
                         Engineering in Computer Science
                       </h3>
-                      <span className="text-blue-600 font-medium">
-                      2023 - 2024
-                    </span>
+                      <span className="text-blue-600 font-medium">2026 - 2026</span>
                     </div>
-                    <p className="text-gray-600 mb-3">
-                      Second Year
-                    </p>
+                    <p className="text-gray-600 mb-3">Second Year</p>
                     <p className="text-gray-600 text-sm">
-                      Currently in my second year of computer science engineering,
-                      building upon the strong foundation established in my first
-                      year. Focusing on advanced programming concepts, software
-                      engineering principles, and specialized computer science
-                      domains.
+                      Second year of computer science engineering, deepening expertise in
+                      software architecture, distributed systems, DevOps practices, and
+                      advanced algorithms. Applied knowledge through hands-on projects
+                      and professional internship experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CST Internship + First Year (grouped under showItems[2]) */}
+              <div
+                  className={`relative mb-8 transition-opacity duration-700 ${
+                      showItems[2] ? "opacity-100" : "opacity-0"
+                  }`}
+              >
+                <div className="flex items-start">
+                  <div className="bg-blue-600 w-4 h-4 rounded-full mt-6 mr-6 flex-shrink-0"></div>
+                  <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        Internship at Canadian System Technologies
+                      </h3>
+                      <span className="text-blue-600 font-medium">Summer 2025</span>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      Completed a two-month internship at CST Canadian System Technologies
+                      Enterprise, where I independently developed a fully functional
+                      e-commerce website named Chronovia Store. This experience allowed me
+                      to apply my technical skills in a real-world setting and gain valuable
+                      insights into professional software development.{" "}
+                      <span
+                          onClick={() => scrollToSection("projects")}
+                          className="text-blue-600 underline cursor-pointer hover:text-blue-800"
+                      >
+                      A demo of the project is available in the Projects section.
+                    </span>
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start mt-8">
+                  <div className="bg-blue-600 w-4 h-4 rounded-full mt-6 mr-6 flex-shrink-0"></div>
+                  <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        Engineering in Computer Science
+                      </h3>
+                      <span className="text-blue-600 font-medium">2024 - 2025</span>
+                    </div>
+                    <p className="text-gray-600 mb-3">First Year</p>
+                    <p className="text-gray-600 text-sm">
+                      First year of computer science engineering, building upon the strong
+                      foundation established during the preparatory cycle. Focusing on
+                      advanced programming concepts, software engineering principles, and
+                      specialized computer science domains.
                     </p>
                   </div>
                 </div>
@@ -111,7 +144,7 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
               {/* Preparatory Cycle */}
               <div
                   className={`relative mb-8 transition-opacity duration-700 ${
-                      showItems[1] ? "opacity-100" : "opacity-0"
+                      showItems[3] ? "opacity-100" : "opacity-0"
                   }`}
               >
                 <div className="flex items-start">
@@ -119,21 +152,16 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
                   <div className="bg-white p-6 rounded-xl shadow-sm flex-grow">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-semibold text-gray-800">
-                        Integrated Preparatory cycle
+                        Integrated Preparatory Cycle
                       </h3>
-                      <span className="text-blue-600 font-medium">
-                      2021 - 2023
-                    </span>
+                      <span className="text-blue-600 font-medium">2022 - 2024</span>
                     </div>
-                    <p className="text-gray-600 mb-3">
-                      Faculté des Sciences de Bizerte
-                    </p>
+                    <p className="text-gray-600 mb-3">Faculté des Sciences de Bizerte</p>
                     <p className="text-gray-600 text-sm">
-                      Completed two years of integrated preparatory cycle at the
-                      Faculty of Sciences of Bizerte. This program provided a
-                      solid foundation in mathematics, physics, and fundamental
-                      sciences, preparing me for engineering studies in computer
-                      science.
+                      Completed two years of integrated preparatory cycle at the Faculty of
+                      Sciences of Bizerte. This program provided a solid foundation in
+                      mathematics, physics, and fundamental sciences, preparing me for
+                      engineering studies in computer science.
                     </p>
                   </div>
                 </div>
@@ -142,7 +170,7 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
               {/* Baccalaureate */}
               <div
                   className={`relative transition-opacity duration-700 ${
-                      showItems[2] ? "opacity-100" : "opacity-0"
+                      showItems[4] ? "opacity-100" : "opacity-0"
                   }`}
               >
                 <div className="flex items-start">
@@ -152,21 +180,19 @@ const Education: React.FC<{ scrollToSection: (id: string) => void }> = ({ scroll
                       <h3 className="text-xl font-semibold text-gray-800">
                         Baccalaureate in Computer Science
                       </h3>
-                      <span className="text-blue-600 font-medium">2021</span>
+                      <span className="text-blue-600 font-medium">2021-2022</span>
                     </div>
-                    <p className="text-gray-600 mb-3">
-                      Lycée Khayer Eddine Ariana
-                    </p>
+                    <p className="text-gray-600 mb-3">Lycée Khayer Eddine Ariana</p>
                     <p className="text-gray-600 text-sm">
-                      Obtained the Tunisian Baccalaureate in Computer Science
-                      (Sciences Informatiques), with a focus on programming,
-                      algorithms, mathematics, and general sciences. This diploma
-                      marked the beginning of my academic journey toward
-                      engineering and technology.
+                      Obtained the Tunisian Baccalaureate in Computer Science (Sciences
+                      Informatiques), with a focus on programming, algorithms, mathematics,
+                      and general sciences. This diploma marked the beginning of my academic
+                      journey toward engineering and technology.
                     </p>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
