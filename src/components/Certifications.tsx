@@ -104,7 +104,7 @@ const Certifications: React.FC = () => {
 
                   {/* Badges Horizontal Row for this Category */}
                   <div className="flex flex-row justify-center items-start gap-4 sm:gap-6 flex-wrap w-full">
-                    {category.certifications.map((cert, i) => (
+                    {category.certifications.map((cert) => (
                         <div
                             key={cert.title}
                             className="flex flex-col items-center w-24 sm:w-28"
