@@ -1,5 +1,5 @@
 import React from "react";
-import { Code, Database, Palette, Globe ,Smartphone} from "lucide-react";
+import { Globe, Cloud, Brain, Smartphone, Code, Wrench } from "lucide-react";
 import SkillBar from "./SkillBar";
 
 const Skills: React.FC = () => {
@@ -19,68 +19,45 @@ const Skills: React.FC = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Code className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Programming
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="JavaScript/TypeScript" level={85} />
-              <SkillBar skill="Python" level={90} />
-              <SkillBar skill="C/C++" level={60} />
-              <SkillBar skill="Java" level={80} />
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <Globe className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
               Web Development
             </h3>
             <div className="space-y-4">
+              <SkillBar skill="React" level={80} />
               <SkillBar skill="Angular" level={80} />
               <SkillBar skill="Spring Boot" level={80} />
-              <SkillBar skill="React" level={80} />
               <SkillBar skill="Express.js" level={90} />
               <SkillBar skill="Tailwind / Bootstrap" level={70} />
             </div>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Code className="w-12 h-12 text-blue-600 mb-4" />
+            <Cloud className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              DevOps
+              DevOps & Cloud
             </h3>
             <div className="space-y-4">
               <SkillBar skill="Docker" level={90} />
               <SkillBar skill="Kubernetes" level={80} />
               <SkillBar skill="CI/CD (Jenkins/GitLab CI)" level={80} />
               <SkillBar skill="DevSecOps" level={80} />
-              <SkillBar skill="DevSecOps" level={80} />
             </div>
           </div>
+
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Database className="w-12 h-12 text-blue-600 mb-4" />
+            <Brain className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Data & Algorithms
+              AI & Data Engineering
             </h3>
             <div className="space-y-4">
+              <SkillBar skill="Python" level={90} />
+              <SkillBar skill="SQL / NoSQL / PostgreSQL" level={90} />
               <SkillBar skill="Data Structures" level={90} />
               <SkillBar skill="Algorithms" level={85} />
-              <SkillBar skill="SQL / NoSQL / PostgresSQL" level={90} />
-              <SkillBar skill="Mathematics" level={80} />
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Palette className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Tools & Others
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="Git/GitHub" level={80} />
-              <SkillBar skill="Linux" level={90} />
-              <SkillBar skill="IDE's" level={85} />
-              <SkillBar skill="Problem Solving" level={85} />
-            </div>
-          </div>
+
           <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <Smartphone className="w-12 h-12 text-blue-600 mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
@@ -88,8 +65,34 @@ const Skills: React.FC = () => {
             </h3>
             <div className="space-y-4">
               <SkillBar skill="Flutter" level={80} />
-              <SkillBar skill="Android Studio" level={75} />
               <SkillBar skill="Dart" level={80} />
+              <SkillBar skill="Android Studio" level={75} />
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Code className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-800 mb-6">
+              Core Programming
+            </h3>
+            <div className="space-y-4">
+              <SkillBar skill="JavaScript/TypeScript" level={85} />
+              <SkillBar skill="Java" level={80} />
+              <SkillBar skill="C/C++" level={60} />
+              <SkillBar skill="Problem Solving" level={85} />
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <Wrench className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-800 mb-6">
+              Tools & Technologies
+            </h3>
+            <div className="space-y-4">
+              <SkillBar skill="Git/GitHub" level={80} />
+              <SkillBar skill="Linux" level={90} />
+              <SkillBar skill="IDEs (VS Code, IntelliJ)" level={85} />
+              <SkillBar skill="Mathematics" level={80} />
             </div>
           </div>
         </div>
