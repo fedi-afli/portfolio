@@ -1,93 +1,119 @@
 import React from "react";
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import DownloadButton from "./DownloadButton";
-import Resume from "/Resume-Fedi-Afli.pdf";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+import Resume from "/Fedi-Afli-Resume.pdf";
 
-const Contact: React.FC = () => {
-  return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Get In Touch
-          </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, interesting
-            projects, or just having a conversation about technology.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-              Let's Connect
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                <Mail className="w-6 h-6 text-blue-600 mr-4" />
-                <div>
-                  <div className="font-medium text-gray-800">Email</div>
-                  <div className="text-gray-600">f3diafli@gmail.com</div>
-                </div>
-              </div>
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                <Phone className="w-6 h-6 text-blue-600 mr-4" />
-                <div>
-                  <div className="font-medium text-gray-800">Phone</div>
-                  <div className="text-gray-600">+216 29 337 633</div>
-                </div>
-              </div>
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                <MapPin className="w-6 h-6 text-blue-600 mr-4" />
-                <div>
-                  <div className="font-medium text-gray-800">Location</div>
-                  <div className="text-gray-600">Bizerte, Tunisia</div>
-                </div>
-              </div>
-            </div>
-            <div className="flex space-x-4 pt-4">
-              <div className="bg-blue-600 p-3 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
+const EMAIL = "f3diafli@gmail.com";
+const PHONE_DISPLAY = "+216 29 337 633";
+
+const CONTACT_ROWS: { icon: LucideIcon; label: string; value: string; href?: string }[] = [
+  { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
+  { icon: Phone, label: "Phone", value: PHONE_DISPLAY, href: "tel:+21629337633" },
+  { icon: MapPin, label: "Location", value: "Ariana, Tunisia" },
+];
+
+const SOCIALS = [
+  { href: "https://www.linkedin.com/in/fedi-afli-2741972ab/?locale=fr", label: "LinkedIn", icon: Linkedin },
+  { href: "https://github.com/fedi-afli", label: "GitHub", icon: Github },
+];
+
+const Contact: React.FC = () => (
+  <section id="contact" className="section-y bg-subtle">
+    <div className="container-x">
+      <SectionHeading
+        number="06"
+        eyebrow="Contact"
+        title="Let's work together"
+        subtitle="Open to discussing new opportunities, interesting projects, or just a conversation about technology."
+      />
+
+      <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* Call to action */}
+        <Reveal>
+          <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-600 to-violet-700 p-8 text-white shadow-2xl shadow-indigo-600/25 sm:p-10">
+            <div
+              className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-400/30 blur-3xl"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <h3 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
+                Ready to collaborate?
+              </h3>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-indigo-100">
+                Whether you're looking for an AI &amp; data engineer for an internship or a junior
+                role, want to collaborate on a project, or just want to connect with someone who
+                loves technology, I'd love to hear from you.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="https://www.linkedin.com/in/fedi-afli-2741972ab/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View LinkedIn profile"
+                  href={`mailto:${EMAIL}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-indigo-700 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-indigo-50"
                 >
-                  <Linkedin className="w-6 h-6 text-white hover:text-blue-300 transition-colors" />
+                  <Mail className="h-5 w-5" />
+                  Say hello
                 </a>
-              </div>
-              <div className="bg-gray-800 p-3 rounded-lg hover:bg-gray-900 transition-colors cursor-pointer">
-                <a
-                  href="https://github.com/fedi-afli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View GitHub profile"
-                >
-                  <Github className="w-6 h-6 text-white hover:text-gray-300 transition-colors" />
-                </a>
-              </div>
-              <div className="bg-blue-500 p-3 rounded-lg hover:bg-blue-600 transition-colors cursor-pointer">
-                <a href="mailto:f3diafli@gmail.com" aria-label="Send email">
-                  <Mail className="w-6 h-6 text-white hover:text-blue-300 transition-colors" />
-                </a>
+                <DownloadButton file={Resume} label="Download résumé" variant="ghost" />
               </div>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
-            <h4 className="text-xl font-semibold text-gray-800 mb-4">
-              Ready to collaborate?
-            </h4>
-            <p className="text-gray-600 mb-6">
-              Whether you're looking for a passionate student for an internship,
-              want to collaborate on a project, or just want to connect with
-              someone who loves technology, I'd love to hear from you!
-            </p>
-            <DownloadButton file={Resume} />
+        </Reveal>
+
+        {/* Details */}
+        <Reveal delay={120}>
+          <div className="card h-full p-6 sm:p-8">
+            <ul className="space-y-3">
+              {CONTACT_ROWS.map(({ icon: Icon, label, value, href }) => {
+                const content = (
+                  <>
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs font-semibold uppercase tracking-wider text-muted">
+                        {label}
+                      </span>
+                      <span className="block truncate font-medium text-ink">{value}</span>
+                    </span>
+                  </>
+                );
+                const rowClass = "flex items-center gap-4 rounded-xl p-3";
+                return (
+                  <li key={label}>
+                    {href ? (
+                      <a href={href} className={`${rowClass} transition-colors hover:bg-subtle`}>
+                        {content}
+                      </a>
+                    ) : (
+                      <div className={rowClass}>{content}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="mt-6 flex gap-3 border-t border-line pt-6">
+              {SOCIALS.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost flex-1 !px-4 !py-2.5"
+                >
+                  <Icon className="h-5 w-5" />
+                  {label}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Contact;

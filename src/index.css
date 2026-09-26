@@ -3,70 +3,127 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: 250 250 252;
+    --surface: 255 255 255;
+    --subtle: 241 245 249;
+    --ink: 15 23 42;
+    --muted: 100 116 139;
+    --line: 226 232 240;
+    --brand: 79 70 229;
+    --brand-soft: 238 242 255;
+    --accent: 6 182 212;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 9 11 20;
+    --surface: 17 21 34;
+    --subtle: 13 16 28;
+    --ink: 241 245 249;
+    --muted: 148 163 184;
+    --line: 34 40 60;
+    --brand: 129 140 248;
+    --brand-soft: 30 32 66;
+    --accent: 34 211 238;
+    color-scheme: dark;
+  }
+
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
-  
+
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply bg-bg text-ink font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: rgb(var(--brand) / 0.25);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--brand));
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
 @layer components {
-  .animate-fade-in-up {
-    animation: fadeInUp 1s ease-out;
+  .section-y {
+    @apply py-24 md:py-28;
   }
-  
-  .skill-bar-animation {
-    animation: skillBarFill 2s ease-out 0.5s both;
+
+  .container-x {
+    @apply max-w-6xl mx-auto px-5 sm:px-8;
+  }
+
+  .card {
+    @apply bg-surface border border-line rounded-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand to-accent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-600/25 transition-all duration-200 hover:bg-indigo-500 hover:-translate-y-0.5 hover:shadow-indigo-600/40;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-surface px-6 py-3 font-semibold text-ink transition-all duration-200 hover:border-brand hover:text-brand hover:-translate-y-0.5;
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Scroll reveal (see components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-@keyframes skillBarFill {
-  from {
-    width: 0%;
-  }
-  to {
-    width: var(--skill-width, 0%);
-  }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgb(var(--bg));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3B82F6;
-  border-radius: 4px;
+  background: rgb(var(--line));
+  border-radius: 6px;
+  border: 2px solid rgb(var(--bg));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563EB;
+  background: rgb(var(--brand));
 }
 
-@keyframes growWidth {
-  from { width: 0; }
-  to { width: var(--tw-width); }
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.skill-bar-animation {
-  animation: growWidth 1s ease-out forwards;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

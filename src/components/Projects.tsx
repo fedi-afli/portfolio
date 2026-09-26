@@ -1,337 +1,241 @@
-import React from "react";
-import social_sphere_logo from "/social_sphere_logo.png";
-import chronova_logo from "/chronova_logo.png";
+import React, { useState } from "react";
+import { Briefcase, ExternalLink, Github, PlayCircle, Sparkles, Star } from "lucide-react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+import { CATEGORIES, projects } from "../data/projects";
+import type { Category, Project } from "../data/projects";
 
-import library_managment_logo from "/library_managment_logo.png";
-import social_media_logo from "/social_media_logo.png";
-  
-import {
-  Code,
-  Smartphone,
-  Globe,
-  ExternalLink,
-} from "lucide-react";
+const CATEGORY_GRADIENT: Record<Category, string> = {
+  "AI & Big Data": "from-violet-600 via-indigo-600 to-indigo-800",
+  "Web & Full-Stack Development": "from-indigo-500 via-blue-500 to-cyan-500",
+  "Mobile Development": "from-teal-500 via-emerald-500 to-emerald-700",
+  "Systems & Desktop Applications": "from-orange-500 via-rose-500 to-pink-600",
+};
 
-const Projects: React.FC = () => {
+const CATEGORY_DOT: Record<Category, string> = {
+  "AI & Big Data": "bg-violet-500",
+  "Web & Full-Stack Development": "bg-indigo-500",
+  "Mobile Development": "bg-emerald-500",
+  "Systems & Desktop Applications": "bg-orange-500",
+};
+
+const MAX_TAGS = 5;
+
+const StarRating: React.FC<{ rating?: number }> = ({ rating }) => {
+  if (!rating || rating <= 0) return null;
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Projects</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Here are some projects I've worked on during my studies and personal
-            learning journey.
-          </p>
+    <div
+      className="flex items-center gap-0.5 rounded-full bg-black/25 px-2 py-1 backdrop-blur"
+      title={`Scope / complexity: ${rating} out of 5`}
+    >
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`h-3 w-3 ${i < rating ? "fill-amber-300 text-amber-300" : "text-white/40"}`}
+        />
+      ))}
+    </div>
+  );
+};
+
+const ProjectLinks: React.FC<{ project: Project }> = ({ project }) => {
+  const links = [
+    project.liveUrl && { href: project.liveUrl, label: "Live site", icon: ExternalLink },
+    project.demoUrl && { href: project.demoUrl, label: "Demo", icon: PlayCircle },
+    project.githubUrl && { href: project.githubUrl, label: "Code", icon: Github },
+  ].filter(Boolean) as { href: string; label: string; icon: typeof ExternalLink }[];
+
+  if (links.length === 0) {
+    return <p className="text-sm text-muted">{project.note ?? "Private project"}</p>;
+  }
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {links.map(({ href, label, icon: Icon }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${label}: ${project.title}`}
+          className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-sm font-medium text-ink transition-colors hover:border-brand hover:bg-brand-soft hover:text-brand"
+        >
+          <Icon className="h-4 w-4" />
+          {label}
+        </a>
+      ))}
+    </div>
+  );
+};
+
+const ProjectCard: React.FC<{ project: Project; large?: boolean }> = ({ project, large }) => {
+  const visibleTags = project.tags.slice(0, MAX_TAGS);
+  const hiddenCount = project.tags.length - visibleTags.length;
+
+  return (
+    <article className="card group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/50 hover:shadow-2xl hover:shadow-indigo-500/15">
+      {/* Cover */}
+      <div
+        className={`relative flex items-center justify-center bg-gradient-to-br ${
+          CATEGORY_GRADIENT[project.category]
+        } ${large ? "h-52" : "h-44"}`}
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 20%, white, transparent 45%), radial-gradient(circle at 90% 90%, white, transparent 40%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-2">
+          <div className="flex flex-wrap gap-2">
+            {project.client && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-indigo-700 shadow">
+                <Briefcase className="h-3 w-3" />
+                Client project
+              </span>
+            )}
+            {project.featured && !project.client && large && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-indigo-700 shadow">
+                <Sparkles className="h-3 w-3" />
+                Featured
+              </span>
+            )}
+          </div>
+          <StarRating rating={project.rating} />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/*CampusHub web app*/}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <Globe className="w-12 h-12 text-purple-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              CampusHub the agentic university web app
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A full-featured agentic web application designed for university students powered by both ollama and nvidia agents, enabling them to track absences,
-              justify them using a computer vision–powered AI agent,
-              and automate administrative tasks through an advanced AI assistant.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2 flex-wrap gap-1 gap-y-* ">
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  express js
-                </span>
-                <span className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
-                  python langchain
-                </span>
-                <span className="px-3 py-1  bg-blue-100 text-blue-800 text-sm rounded-full">
-                  NoSQL
-                </span>
-
-              </div>
-              <a
-                  href="https://github.com/fedi-afli/UniversityPortal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
+        {project.image ? (
+          <div className="relative grid h-28 w-28 place-items-center rounded-3xl bg-white p-2 shadow-xl transition-transform duration-300 group-hover:scale-105">
+            <img
+              src={project.image}
+              alt={`${project.title} logo`}
+              className="h-full w-full rounded-2xl object-contain"
+              loading="lazy"
+            />
           </div>
-          {/*Chronovia Store Project*/}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                src={chronova_logo}
-                alt="Chronova Logo"
-                className="h-32 w-32 object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              Chronova Store eCommerce
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A full-featured e-commerce web application built during my
-              internship at CTB Enterprise. Includes product browsing,
-              authentication, cart, orders, and admin dashboard.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2 flex-wrap gap-1 gap-y-* ">
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  React
-                </span>
-                <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">
-                  Spring Boot
-                </span>
-                <span className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
-                  TypeScript
-                </span>
-                <span className="px-3 py-1  bg-blue-100 text-blue-800 text-sm rounded-full">
-                  PostgreSQL
-                </span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
-                  Tailwind
-                </span>
-              </div>
-              <a
-                href="https://www.youtube.com/watch?v=QnccwiNDIJw&feature=youtu.be"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
+        ) : (
+          <div className="relative grid h-28 w-28 place-items-center rounded-3xl bg-white/15 p-7 text-white shadow-xl ring-1 ring-white/30 backdrop-blur transition-transform duration-300 group-hover:scale-105">
+            {project.icon}
           </div>
-           {/*University Mobile App*/}
-           <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <Smartphone className="w-12 h-12 text-purple-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              University Mobile App
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A simple yet effective Flutter-based school attendance management system with role-based access for admins, teachers, and students.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1  bg-blue-100 text-blue-800 text-sm rounded-full">
-                  SQL
-                </span>
+        )}
+      </div>
 
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  PHP
-                </span>
-                <span className="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">
-                  Flutter
-                </span>
-              </div>
-              <a
-                href="https://github.com/fedi-afli/university_mobile_app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
+      {/* Body */}
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="font-display text-xl font-semibold leading-snug text-ink">{project.title}</h3>
+        <p className="mt-3 flex-grow leading-relaxed text-muted">{project.description}</p>
+
+        <ul className="mt-5 flex flex-wrap gap-2">
+          {visibleTags.map((tag) => (
+            <li key={tag} className="rounded-md bg-subtle px-2.5 py-1 text-xs font-medium text-muted">
+              {tag}
+            </li>
+          ))}
+          {hiddenCount > 0 && (
+            <li className="rounded-md bg-subtle px-2.5 py-1 text-xs font-medium text-muted">
+              +{hiddenCount} more
+            </li>
+          )}
+        </ul>
+
+        <div className="mt-5 border-t border-line pt-5">
+          <ProjectLinks project={project} />
+        </div>
+      </div>
+    </article>
+  );
+};
+
+const Projects: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState<(typeof CATEGORIES)[number]>("All");
+
+  const showFeatured = activeFilter === "All";
+  const featured = projects.filter((p) => p.featured);
+
+  // In "All" the featured row already shows those projects, so don't repeat them below.
+  const listed = projects.filter((p) => {
+    if (activeFilter === "All") return !p.featured;
+    return p.category === activeFilter;
+  });
+
+  const groups = CATEGORIES.filter((c): c is Category => c !== "All")
+    .map((category) => ({ category, items: listed.filter((p) => p.category === category) }))
+    .filter((group) => group.items.length > 0);
+
+  const countFor = (category: (typeof CATEGORIES)[number]) =>
+    category === "All" ? projects.length : projects.filter((p) => p.category === category).length;
+
+  return (
+    <section id="projects" className="section-y bg-subtle">
+      <div className="container-x">
+        <SectionHeading
+          number="04"
+          eyebrow="Projects"
+          title="Things I've built"
+          subtitle="From real-time data platforms to client work delivered in production, grouped by engineering domain."
+        />
+
+        <Reveal className="-mx-5 mb-12 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0">
+          <div className="flex gap-2 sm:flex-wrap" role="tablist" aria-label="Filter projects by category">
+            {CATEGORIES.map((category) => {
+              const active = activeFilter === category;
+              return (
+                <button
+                  key={category}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setActiveFilter(category)}
+                  className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+                    active
+                      ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-600/25"
+                      : "border-line bg-surface text-muted hover:border-brand hover:text-brand"
+                  }`}
+                >
+                  {category}
+                  <span
+                    className={`rounded-full px-1.5 text-xs ${
+                      active ? "bg-white/20" : "bg-subtle"
+                    }`}
+                  >
+                    {countFor(category)}
+                  </span>
+                </button>
+              );
+            })}
           </div>
+        </Reveal>
 
+        <div key={activeFilter} className="animate-fade-up">
+          {showFeatured && (
+            <div className="mb-16">
+              <h3 className="mb-6 flex items-center gap-2 font-display text-2xl font-bold text-ink">
+                <Sparkles className="h-5 w-5 text-brand" />
+                Featured
+              </h3>
+              <div className="grid gap-6 md:grid-cols-2">
+                {featured.map((project) => (
+                  <ProjectCard key={project.id} project={project} large />
+                ))}
+              </div>
+            </div>
+          )}
 
-          {/* YH Street website */}
-         {/* <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                src={yh_street_logo}
-                alt="YH STREET Logo"
-                className="h-32 w-32 object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              YH Street eCommerce Website
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A simple yet effective e-commerce website built with React.js and
-              Tailwind CSS, designed to showcase products and support online
-              shopping for small to medium businesses. It uses Supabase for data
-              persistence and is currently live with me managing the platform as
-              the administrator.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  React
-                </span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
-                  Tailwind
-                </span>
+          {groups.map(({ category, items }) => (
+            <div key={category} className="mb-16 last:mb-0">
+              <h3 className="mb-6 flex items-center gap-3 border-b border-line pb-3 font-display text-2xl font-bold text-ink">
+                <span className={`h-2.5 w-2.5 rounded-full ${CATEGORY_DOT[category]}`} />
+                {category}
+              </h3>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {items.map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
               </div>
-              <a
-                href="https://arabian-shop-magichosted.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
             </div>
-          </div>*/}
-          {/* social sphere website */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                src={social_sphere_logo}
-                alt="Social Sphere Logo"
-                className="h-32 w-32 object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              SocialSphere
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Social Sphere is a LinkedIn-inspired platform that connects
-              professionals, enabling networking, content sharing, and career
-              growth in a modern social environment.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  express js
-                </span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
-                  Tailwind
-                </span>
-              </div>
-              <a
-                href="https://www.youtube.com/watch?v=qts42JCuHFg"
-                target="SocialSphere Demo Video"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-          {/* Social Media App in Java */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-<div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                src={social_media_logo}
-                alt="Social Media Logo"
-                className="h-32 w-32 object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              Social Media Web App
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A full-stack social media web application built with Java (Maven),
-              featuring authentication, user profiles, and real-time posting.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">
-                  Java
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                  SceneBuiler
-                </span>
-              </div>
-              <a
-                href="https://github.com/fedi-afli/SocialMedia_LinkedIn.git"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-
-          {/* Python Library Manager */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <img
-                src={library_managment_logo}
-                alt="Library Managmen Logo"
-                className="h-32 w-32 object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              Library Management App
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A Python application with a graphical user interface to manage a
-              library: books, borrowers, and due dates.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
-                  Python
-                </span>
-                <span className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">
-                  Tkinter
-                </span>
-              </div>
-
-              {/* <ExternalLink className="w-5 h-5 text-gray-400 hover:text-red-600 cursor-pointer" />*/}
-            </div>
-          </div>
-
-          {/* ReactJS Portfolio */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <Globe className="w-12 h-12 text-purple-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              React Portfolio
-            </h3>
-            <p className="text-gray-600 mb-4">
-              This very portfolio website built with ReactJS and Tailwind CSS to
-              showcase my academic and personal projects.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
-                  React
-                </span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
-                  Tailwind
-                </span>
-              </div>
-              <a
-                href="https://fedi-afli.github.io/portfolio/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-blue-600 cursor-pointer" />
-              </a>
-            </div>
-          </div>
-
-          {/* C Process Scheduling Simulator */}
-          <div className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
-            <div className="bg-red-100 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
-              <Code className="w-12 h-12 text-red-600" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              CPU Scheduling Simulator
-            </h3>
-            <p className="text-gray-600 mb-4">
-              A C application to simulate and visualize CPU process scheduling
-              algorithms like FCFS, SJF, Round Robin.
-            </p>
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-2">
-                <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">
-                  C
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                  Algorithms
-                </span>
-              </div>
-              {/* <ExternalLink className="w-5 h-5 text-gray-400 hover:text-red-600 cursor-pointer" />*/}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

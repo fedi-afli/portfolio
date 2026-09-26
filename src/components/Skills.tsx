@@ -1,104 +1,128 @@
 import React from "react";
-import { Globe, Cloud, Brain, Smartphone, Code, Wrench } from "lucide-react";
-import SkillBar from "./SkillBar";
+import { Brain, Cloud, Code, Globe, Smartphone, Wrench } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
-const Skills: React.FC = () => {
-  return (
-    <section id="skills" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Skills & Technologies
-          </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            As a second-year engineering student, I'm continuously learning and
-            building my foundation in computer science fundamentals and modern
-            technologies.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Globe className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Web Development
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="React" level={80} />
-              <SkillBar skill="Angular" level={80} />
-              <SkillBar skill="Spring Boot" level={80} />
-              <SkillBar skill="Express.js" level={90} />
-              <SkillBar skill="Tailwind / Bootstrap" level={70} />
-            </div>
-          </div>
+// A skill is either something I use day to day ("core") or something I've
+// worked with on projects but am still building depth in ("learning").
+type Skill = string | { name: string; learning: true };
 
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Cloud className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              DevOps & Cloud
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="Docker" level={90} />
-              <SkillBar skill="Kubernetes" level={80} />
-              <SkillBar skill="CI/CD (Jenkins/GitLab CI)" level={80} />
-              <SkillBar skill="DevSecOps" level={80} />
-            </div>
-          </div>
+const learning = (name: string): Skill => ({ name, learning: true });
 
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Brain className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              AI & Data Engineering
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="Python" level={90} />
-              <SkillBar skill="SQL / NoSQL / PostgreSQL" level={90} />
-              <SkillBar skill="Data Structures" level={90} />
-              <SkillBar skill="Algorithms" level={85} />
-            </div>
-          </div>
+interface SkillGroup {
+  title: string;
+  icon: LucideIcon;
+  skills: Skill[];
+}
 
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Smartphone className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Mobile Development
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="Flutter" level={80} />
-              <SkillBar skill="Dart" level={80} />
-              <SkillBar skill="Android Studio" level={75} />
-            </div>
-          </div>
+const skillGroups: SkillGroup[] = [
+  {
+    title: "AI & Data Engineering",
+    icon: Brain,
+    skills: [
+      "Python",
+      "SQL / NoSQL / PostgreSQL",
+      "Apache Spark",
+      "Apache Kafka",
+      "ClickHouse",
+      "Pandas",
+      "LangChain",
+      "Data Structures",
+      "Algorithms",
+    ],
+  },
+  {
+    title: "Web Development",
+    icon: Globe,
+    skills: ["Angular", "Spring Boot", "Express.js", "Tailwind / Bootstrap", learning("React"),learning(".NET")],
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: Cloud,
+    skills: [
+      "Docker",
+    "Kubernetes",
+      "CI/CD (Jenkins/GitLab CI)",
+    ],
+  },
+  {
+    title: "Core Programming",
+    icon: Code,
+    skills: ["JavaScript/TypeScript", "Java", "Problem Solving", "C/C++","Python"],
+  },
+  {
+    title: "Mobile Development",
+    icon: Smartphone,
+    skills: ["Flutter", "Dart", "Android Studio"],
+  },
+  {
+    title: "Tools & Foundations",
+    icon: Wrench,
+    skills: ["Git/GitHub", "Linux", "IDEs (VS Code, IntelliJ)", "Mathematics"],
+  },
+];
 
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Code className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Core Programming
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="JavaScript/TypeScript" level={85} />
-              <SkillBar skill="Java" level={80} />
-              <SkillBar skill="C/C++" level={60} />
-              <SkillBar skill="Problem Solving" level={85} />
-            </div>
-          </div>
+const Skills: React.FC = () => (
+  <section id="skills" className="section-y bg-subtle">
+    <div className="container-x">
+      <SectionHeading
+        number="02"
+        eyebrow="Skills"
+        title="Skills & technologies"
+        subtitle="The tools I reach for to build data platforms, intelligent systems and full-stack applications."
+      />
 
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <Wrench className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">
-              Tools & Technologies
-            </h3>
-            <div className="space-y-4">
-              <SkillBar skill="Git/GitHub" level={80} />
-              <SkillBar skill="Linux" level={90} />
-              <SkillBar skill="IDEs (VS Code, IntelliJ)" level={85} />
-              <SkillBar skill="Mathematics" level={80} />
+      <Reveal className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
+        <span className="flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-brand" /> Used regularly
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full border-2 border-muted/60" /> Building depth
+        </span>
+      </Reveal>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {skillGroups.map(({ title, icon: Icon, skills }, i) => (
+          <Reveal key={title} delay={(i % 3) * 100}>
+            <div className="card h-full p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand/50 hover:shadow-xl hover:shadow-indigo-500/10">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-brand">
+                  <Icon className="h-6 w-6" />
+                </span>
+                <h3 className="font-display text-lg font-semibold text-ink">{title}</h3>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {skills.map((skill) => {
+                  const name = typeof skill === "string" ? skill : skill.name;
+                  const isLearning = typeof skill !== "string";
+                  return (
+                    <li
+                      key={name}
+                      className={`flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium ${
+                        isLearning
+                          ? "border border-dashed border-muted/50 text-muted"
+                          : "bg-brand-soft text-ink"
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          isLearning ? "border border-muted/70" : "bg-brand"
+                        }`}
+                        aria-hidden="true"
+                      />
+                      {name}
+                      {isLearning && <span className="sr-only"> (building depth)</span>}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </div>
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Skills;
