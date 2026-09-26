@@ -8,6 +8,7 @@ import social_media_logo from "/social_media_logo.png";
 import barber_shoplogo from "/barber_shop_logo.png";
 import chariklogo from "/chariklogo.png";
 import khatwa_logo from "/khatwa_logo.png";
+import bayan_logo from "/bayan_logo.svg";
 
 export const CATEGORIES = [
   "All",
@@ -79,13 +80,14 @@ export const projects: Project[] = [
   {
     id: "bayan-dashboarding",
     category: "AI & Big Data",
-    title: "Bayan Dashboarding — SaaS Sales Analytics Platform",
+    title: "Bayan — SaaS Sales Dashboards for Small Businesses",
     description:
-      "A SaaS platform that lets users upload raw sales data and instantly get back auto-generated charts and statistics. The system automatically detects column types and structure, then builds relevant visualizations and key metrics without any manual configuration.",
-    tags: ["SaaS", "Data Analysis", "Auto Column Detection", "Dashboarding"],
-    icon: <BarChart3 className={icon} />,
+      "A multi-tenant SaaS that turns a raw sales export into a ready-to-read dashboard. Column names in English, French or Arabic are matched to a sales schema through synonyms, fuzzy and semantic matching, with a GPU-hosted LLM as a type-checked fallback that learns from each account's corrections. Users log in through Keycloak, top up credits via Konnect, and each dashboard is priced from the data it processes and stores.",
+    tags: ["FastAPI", "Angular", "PostgreSQL", "LLM + Embeddings", "Keycloak / OIDC", "ECharts", "Konnect Payments"],
+    image: bayan_logo,
     githubUrl: "https://github.com/fedi-afli/bayan-dashboarding",
     rating: 5,
+    featured: true,
   },
   {
     id: "derja-subs",

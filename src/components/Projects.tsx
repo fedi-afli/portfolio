@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Briefcase, ExternalLink, Github, PlayCircle, Sparkles, Star } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Briefcase, ChevronDown, ExternalLink, Github, PlayCircle, Sparkles, Star } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { CATEGORIES, projects } from "../data/projects";
@@ -68,7 +68,7 @@ const ProjectLinks: React.FC<{ project: Project }> = ({ project }) => {
   );
 };
 
-const ProjectCard: React.FC<{ project: Project; large?: boolean }> = ({ project, large }) => {
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const visibleTags = project.tags.slice(0, MAX_TAGS);
   const hiddenCount = project.tags.length - visibleTags.length;
 
@@ -76,9 +76,9 @@ const ProjectCard: React.FC<{ project: Project; large?: boolean }> = ({ project,
     <article className="card group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/50 hover:shadow-2xl hover:shadow-indigo-500/15">
       {/* Cover */}
       <div
-        className={`relative flex items-center justify-center bg-gradient-to-br ${
+        className={`relative flex h-44 items-center justify-center bg-gradient-to-br ${
           CATEGORY_GRADIENT[project.category]
-        } ${large ? "h-52" : "h-44"}`}
+        }`}
       >
         <div
           className="pointer-events-none absolute inset-0 opacity-30"
@@ -95,12 +95,6 @@ const ProjectCard: React.FC<{ project: Project; large?: boolean }> = ({ project,
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-indigo-700 shadow">
                 <Briefcase className="h-3 w-3" />
                 Client project
-              </span>
-            )}
-            {project.featured && !project.client && large && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-indigo-700 shadow">
-                <Sparkles className="h-3 w-3" />
-                Featured
               </span>
             )}
           </div>
@@ -149,8 +143,130 @@ const ProjectCard: React.FC<{ project: Project; large?: boolean }> = ({ project,
   );
 };
 
+/**
+ * Compact card for the "Featured" row: logo, title and a two-line teaser.
+ * Clicking it expands the card in place to show the full description, tags and links.
+ */
+const FeaturedCard: React.FC<{ project: Project; open: boolean; onToggle: () => void }> = ({
+  project,
+  open,
+  onToggle,
+}) => {
+  const regionId = `featured-${project.id}`;
+  const detailsRef = useRef<HTMLDivElement>(null);
+
+  // collapsed details stay out of the tab order and the accessibility tree
+  useEffect(() => {
+    if (detailsRef.current) detailsRef.current.inert = !open;
+  }, [open]);
+
+  return (
+    <article
+      className={`card overflow-hidden transition-all duration-300 motion-reduce:transition-none ${
+        open
+          ? "border-brand/50 shadow-2xl shadow-indigo-500/15"
+          : "hover:-translate-y-1 hover:border-brand/50 hover:shadow-xl hover:shadow-indigo-500/10"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        aria-controls={regionId}
+        className={`group flex w-full items-stretch text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand ${
+          open ? "min-h-[5.5rem]" : "md:min-h-[9.25rem]" // collapsed cards line up in rows
+        }`}
+      >
+        <div
+          className={`relative flex w-24 shrink-0 items-center justify-center bg-gradient-to-br sm:w-28 ${
+            CATEGORY_GRADIENT[project.category]
+          }`}
+        >
+          {project.image ? (
+            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white p-1.5 shadow-lg transition-transform duration-300 group-hover:scale-105">
+              <img
+                src={project.image}
+                alt={`${project.title} logo`}
+                className="h-full w-full rounded-xl object-contain"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white/15 p-3 text-white shadow-lg ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-105">
+              {project.icon}
+            </div>
+          )}
+        </div>
+
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5 p-4 sm:p-5">
+          <div className="flex items-start justify-between gap-3">
+            <h4 className="font-display text-base font-semibold leading-snug text-ink sm:text-lg">{project.title}</h4>
+            <ChevronDown
+              className={`mt-0.5 h-5 w-5 shrink-0 transition-transform duration-300 ${
+                open ? "rotate-180 text-brand" : "text-muted group-hover:text-brand"
+              }`}
+              aria-hidden="true"
+            />
+          </div>
+          {!open && <p className="line-clamp-2 text-sm leading-relaxed text-muted">{project.description}</p>}
+          {project.client && (
+            <span className="mt-1 inline-flex w-fit items-center gap-1 rounded-full bg-brand-soft px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-brand">
+              <Briefcase className="h-3 w-3" />
+              Client project
+            </span>
+          )}
+        </div>
+      </button>
+
+      <div
+        id={regionId}
+        role="region"
+        aria-label={`${project.title} details`}
+        className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div ref={detailsRef} className="overflow-hidden">
+          <div className="border-t border-line px-5 pb-5 pt-4 sm:px-6">
+            <p className="leading-relaxed text-muted">{project.description}</p>
+
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <li key={tag} className="rounded-md bg-subtle px-2.5 py-1 text-xs font-medium text-muted">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+              <ProjectLinks project={project} />
+              {project.rating ? (
+                <div
+                  className="flex items-center gap-0.5"
+                  title={`Scope / complexity: ${project.rating} out of 5`}
+                >
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-3.5 w-3.5 ${
+                        i < (project.rating ?? 0) ? "fill-amber-400 text-amber-400" : "text-line"
+                      }`}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<(typeof CATEGORIES)[number]>("All");
+  // one featured card open at a time keeps the featured row compact
+  const [openFeatured, setOpenFeatured] = useState<string | null>(null);
 
   const showFeatured = activeFilter === "All";
   const featured = projects.filter((p) => p.featured);
@@ -211,13 +327,21 @@ const Projects: React.FC = () => {
         <div key={activeFilter} className="animate-fade-up">
           {showFeatured && (
             <div className="mb-16">
-              <h3 className="mb-6 flex items-center gap-2 font-display text-2xl font-bold text-ink">
-                <Sparkles className="h-5 w-5 text-brand" />
-                Featured
-              </h3>
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="flex items-center gap-2 font-display text-2xl font-bold text-ink">
+                  <Sparkles className="h-5 w-5 text-brand" />
+                  Featured
+                </h3>
+                <p className="text-sm text-muted">Click a project to see the details</p>
+              </div>
+              <div className="grid items-start gap-4 md:grid-cols-2">
                 {featured.map((project) => (
-                  <ProjectCard key={project.id} project={project} large />
+                  <FeaturedCard
+                    key={project.id}
+                    project={project}
+                    open={openFeatured === project.id}
+                    onToggle={() => setOpenFeatured((id) => (id === project.id ? null : project.id))}
+                  />
                 ))}
               </div>
             </div>
